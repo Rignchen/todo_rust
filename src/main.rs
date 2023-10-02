@@ -95,7 +95,10 @@ fn command(command_input: &str,mut _run: &mut bool, todos: &mut Vec<String>, arc
 		},
 		"a"|"archived"|"archive" => {show_values(archive, archive.len());},
 		"t"|"all"|"todos"|"todo"|"show" => {show_values(todos, todos.len());},
-		"e"|"esc"|"exit" => *_run = false,
+		"e"|"esc"|"exit"|"quit" => {
+			let temp = input("Are you sure you want to leave? All unsaved modification will be lost [y/n]").to_lowercase();
+			if temp == "y" || temp == "yes" {*_run = false}
+		},
 		_ => return false,
 	}
 	true
