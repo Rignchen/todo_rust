@@ -53,7 +53,7 @@ fn command(command_input: &str,mut _run: &mut bool, todos: &mut Vec<String>, arc
 		"d"|"delet"|"erase" => {
 			println!("");
 			show_values(&archive, archive.len());
-			match input("Wich archoved task do you wanna unarchive?").trim().parse::<usize>() {
+			match input("Wich archoved task do you wanna delet?").trim().parse::<usize>() {
 				Ok(parsed_value) => {
 					if parsed_value < archive.len() {archive.remove(parsed_value);}
 					else {println!("No task with id {} found",parsed_value)}
